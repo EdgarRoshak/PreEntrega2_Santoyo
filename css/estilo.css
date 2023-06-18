@@ -1,13 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
-
+@charset "UTF-8";
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   color: #333333;
   background-color: white; }
+
+nav img {
+  width: 60px;
+  padding: 5px;
+  margin: auto;
+  border-radius: 70px; }
+
+nav ul a:hover {
+  background-color: #585858;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px; }
 
 .mainIndex h1,
 .mainIndex h2,
@@ -34,22 +42,6 @@ body {
   width: 100%;
   height: 60vh;
   object-fit: cover; }
-
-nav img {
-  width: 60px;
-  padding: 5px;
-  margin: auto;
-  border-radius: 70px; }
-
-nav ul a:hover {
-  background-color: #585858;
-  color: white;
-  font-size: 18px;
-  border-radius: 10px; }
-
-footer {
-  margin-top: 5rem;
-  text-align: center; }
 
 .container {
   display: flex;
@@ -99,14 +91,14 @@ section {
   border-radius: 30px; }
 
 .text-container {
-  width: 50%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-  .text-container h2,
+  flex-direction: column; }
+  .text-container h2 {
+    text-align: center;
+    font-weight: bold; }
   .text-container p {
-    text-align: center; }
+    text-align: justify; }
 
 button {
   padding: 1rem;
@@ -141,70 +133,92 @@ form {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
 
-@media (min-width: 810px) {
+.price {
+  color: salmon;
+  font-weight: bold;
+  text-align: center; }
+
+.catalog-item {
+  position: relative;
+  overflow: hidden; }
+
+.catalog-item img {
+  transition: transform 0.3s ease; }
+
+.catalog-item:hover img {
+  transform: scale(1.1); }
+
+.catalog-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+
+.catalog-item:hover .overlay {
+  opacity: 1; }
+
+footer {
+  margin-top: 5rem;
+  text-align: center; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* Estilos para computadoras de escritorio */
+@media (min-width: 1024px) {
+  .texto {
+    font-size: 60px; }
+  .tituloColumna {
+    font-size: 40px; }
+  .parrafoColumna {
+    font-size: 30px; }
+  .column {
+    flex-basis: 30%; } }
+
+/* Estilos para tablets en orientación horizontal y celulares en orientación vertical */
+@media (max-width: 1023px) {
   .texto {
     font-size: 40px; }
   .tituloColumna {
     font-size: 30px; }
   .parrafoColumna {
-    font-size: 20px; } }
-
-@media (max-width: 811px) {
-  .mainIndex div {
-    text-align: center; }
-  .mainIndex h1 {
-    font-size: 24px;
-    margin-top: 15px; }
-  .mainIndex p {
-    font-size: 16px; }
-  .texto {
-    font-size: 18px; }
-  .tituloColumna {
-    font-size: 24px; }
-  .parrafoColumna {
-    font-size: 16px; }
-  .imagenAcerca {
-    width: 100%;
-    height: auto; }
-  .text-container {
-    text-align: center;
-    padding: 20px; }
+    font-size: 20px; }
   .container {
-    display: flex;
     flex-direction: column;
     align-items: center; }
   .column {
     width: 100%;
     max-width: 600px;
     margin-bottom: 20px; }
+  .imagenAcerca {
+    width: 100%;
+    height: auto; }
+  .text-container {
+    text-align: center;
+    padding: 20px;
+    width: 80%; }
   iframe {
-    width: 100%;
-    height: 220px; } }
+    width: 300px;
+    height: 315; } }
 
-.catalog-item {
-  position: relative;
-  overflow: hidden; }
-  .catalog-item img {
-    transition: transform 0.3s ease; }
-  .catalog-item:hover img {
-    transform: scale(1.1); }
-  .catalog-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center; }
-  .catalog-item:hover .overlay {
-    opacity: 1; }
-
-.price {
-  color: salmon;
-  font-weight: bold; }
+/* Estilos para celulares en orientación horizontal */
+@media (max-width: 767px) {
+  .texto {
+    font-size: 30px; }
+  .tituloColumna {
+    font-size: 24px; }
+  .parrafoColumna {
+    font-size: 16px; }
+  form {
+    width: 80%; } }
